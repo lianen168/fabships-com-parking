@@ -3,790 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FABSHIPS.COM | Distributed Fabrication Fleets</title>
+    <meta name="description" content="For Sale: fabships.com - A premium domain for the next frontier: AI-driven orbital manufacturing, asteroid mining, and space fabrication fleets.">
+    <meta name="keywords" content="fabships, space manufacturing, orbital factory, AI fabrication, spaceship, asteroid mining, space logistics, tech domain, premium domain, domain for sale">
+    
+    <title>For Sale: FabShips.com - The Future of Space Manufacturing</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --navy-blue: #0a1a3d;
-            --fleet-gray: #2a3b5c;
-            --hull-red: #d32f2f;
-            --deck-blue: #1976d2;
-            --crane-yellow: #ffb300;
-            --port-light: #4fc3f7;
-            --ocean-dark: #061028;
+            --primary-color: #87CEEB; /* Sky Blue */
+            --background-color: #0d1a26;
+            --text-color: #cdd4da;
+            --header-text-color: #ffffff;
+            --card-background: #172a3a;
+            --border-color: #2a4157;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
         body {
+            background-color: var(--background-color);
+            color: var(--text-color);
             font-family: 'Exo 2', sans-serif;
-            background-color: var(--ocean-dark);
-            color: #e0e0e0;
+            margin: 0;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
+            text-align: center;
         }
-        
-        /* 港口波浪背景 */
-        #harbor-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.7;
-        }
-        
-        /* 集装箱网格背景 */
-        .container-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(90deg, rgba(66, 66, 66, 0.1) 1px, transparent 1px),
-                linear-gradient(rgba(66, 66, 66, 0.1) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -2;
-            opacity: 0.2;
-        }
-        
-        /* 起重机臂动画 */
-        .crane-arm {
-            position: fixed;
-            top: 0;
-            right: 10%;
-            width: 4px;
-            height: 300px;
-            background: linear-gradient(to bottom, var(--crane-yellow), #ff8f00);
-            transform-origin: top center;
-            animation: craneSwing 15s infinite alternate ease-in-out;
-            z-index: -1;
-            opacity: 0.3;
-        }
-        
-        @keyframes craneSwing {
-            0% { transform: rotate(-15deg); }
-            100% { transform: rotate(15deg); }
-        }
-        
-        /* 主容器 */
+
         .container {
             max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
+            width: 100%;
         }
-        
-        /* 头部 */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 0;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid rgba(25, 118, 210, 0.4);
-        }
-        
-        .logo {
-            font-family: 'Exo 2', sans-serif;
-            font-size: 2.8rem;
+
+        /* --- Header & Domain Name --- */
+        .domain-name {
+            font-family: 'Roboto Mono', monospace;
+            font-size: clamp(2.5rem, 10vw, 5rem);
             font-weight: 700;
-            letter-spacing: 2px;
+            margin: 0;
+            color: var(--header-text-color);
         }
         
-        .logo-fab {
-            color: var(--hull-red);
-            text-shadow: 0 0 10px rgba(211, 47, 47, 0.3);
-        }
-        
-        .logo-ships {
-            color: var(--deck-blue);
-            text-shadow: 0 0 10px rgba(25, 118, 210, 0.3);
-        }
-        
-        .domain-info {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.9rem;
-            background: rgba(42, 59, 92, 0.6);
-            padding: 0.8rem 1.2rem;
-            border-radius: 6px;
-            border: 1px solid rgba(79, 195, 247, 0.3);
-        }
-        
-        .info-item {
-            margin: 0.3rem 0;
-        }
-        
-        .info-label {
-            color: var(--port-light);
+        .fabships-span {
             display: inline-block;
-            min-width: 80px;
-        }
-        
-        /* 主要内容 */
-        .main-content {
-            margin-top: 2rem;
-        }
-        
-        .concept-section {
-            background: rgba(10, 26, 61, 0.8);
-            border-radius: 15px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            border: 1px solid rgba(25, 118, 210, 0.3);
-            position: relative;
             overflow: hidden;
+            white-space: nowrap;
+            border-right: .1em solid var(--primary-color);
+            animation: typing 3s steps(8, end) infinite, blink-caret .75s step-end infinite;
         }
         
-        .concept-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--hull-red), var(--deck-blue));
+        .com-span {
+            color: var(--primary-color);
+            animation: pulse-light 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color); }
+        }
+        @keyframes pulse-light {
+            from { text-shadow: 0 0 5px var(--primary-color); }
+            to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px #fff; }
         }
         
-        .concept-title {
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: white;
+        /* --- Content & Core Message --- */
+        .core-message {
+            margin: 2rem auto 3rem auto;
+            max-width: 750px;
+        }
+        .core-message h2 {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            color: var(--header-text-color);
+            line-height: 1.4;
+            margin: 0;
+        }
+        .core-message strong {
+            color: var(--primary-color);
+            font-weight: 700;
         }
         
-        .concept-subtitle {
-            font-size: 1.1rem;
-            text-align: center;
-            color: var(--port-light);
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* 核心概念强调 */
-        .core-concept {
-            text-align: center;
-            font-size: 1.4rem;
-            line-height: 1.6;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: rgba(25, 118, 210, 0.1);
-            border-radius: 10px;
-            border-left: 4px solid var(--crane-yellow);
-        }
-        
-        .concept-highlight {
-            color: var(--crane-yellow);
-            font-weight: 600;
-        }
-        
-        /* 差异化声明 */
-        .differentiation {
-            background: rgba(211, 47, 47, 0.1);
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 3rem 0;
-            border: 1px solid rgba(211, 47, 47, 0.3);
-        }
-        
-        .diff-title {
-            color: var(--hull-red);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .diff-content {
-            line-height: 1.5;
-            color: #ccc;
-        }
-        
-        /* 应用场景 */
+        /* --- Applications Section --- */
         .applications {
+            margin: 3rem 0;
+            text-align: left;
+        }
+        .app-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
+            gap: 1.5rem;
         }
-        
-        .application {
-            background: rgba(42, 59, 92, 0.7);
-            border-radius: 10px;
-            padding: 2rem;
-            border-top: 4px solid var(--deck-blue);
-            transition: all 0.3s ease;
-        }
-        
-        .application:hover {
-            transform: translateY(-5px);
-            border-top-color: var(--crane-yellow);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .app-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--deck-blue);
-        }
-        
-        .app-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .app-desc {
-            color: #b0b0b0;
-            line-height: 1.5;
-        }
-        
-        /* 价格区域 */
-        .pricing-section {
-            background: linear-gradient(135deg, rgba(25, 118, 210, 0.1), rgba(10, 26, 61, 0.8));
-            border-radius: 15px;
-            padding: 3rem;
-            margin: 4rem 0;
-            border: 1px solid rgba(79, 195, 247, 0.3);
-            text-align: center;
-            position: relative;
-        }
-        
-        .pricing-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--hull-red), var(--crane-yellow), var(--deck-blue));
-        }
-        
-        .price-tag {
-            margin-bottom: 2rem;
-        }
-        
-        .total-price {
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: var(--crane-yellow);
-            text-shadow: 0 0 15px rgba(255, 179, 0, 0.3);
-            margin-bottom: 0.5rem;
-        }
-        
-        .price-label {
-            color: var(--port-light);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .price-note {
-            margin-top: 1.5rem;
-            color: #aaa;
-            font-size: 0.9rem;
-            font-family: 'Share Tech Mono', monospace;
-        }
-        
-        /* CTA按钮 */
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--hull-red), var(--crane-yellow));
-            color: var(--navy-blue);
-            font-weight: 700;
-            font-size: 1.2rem;
-            padding: 1.2rem 3rem;
-            border-radius: 8px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
-            border: none;
-            cursor: pointer;
-            font-family: 'Exo 2', sans-serif;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.5);
-        }
-        
-        /* 联系方式 */
-        .contact-section {
-            background: rgba(6, 16, 40, 0.9);
-            border-radius: 12px;
-            padding: 3rem;
-            margin: 4rem 0;
-            text-align: center;
-            border: 1px solid rgba(79, 195, 247, 0.3);
-            position: relative;
-        }
-        
-        .contact-title {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: var(--port-light);
-        }
-        
-        .contact-subtitle {
-            color: var(--crane-yellow);
-            margin-bottom: 2rem;
-            font-size: 1rem;
-            font-family: 'Share Tech Mono', monospace;
-        }
-        
-        .contact-email {
-            font-size: 1.5rem;
-            font-family: 'Share Tech Mono', monospace;
-            color: var(--crane-yellow);
-            background: rgba(255, 179, 0, 0.1);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            display: inline-block;
-            margin: 1rem 0;
-            text-decoration: none;
-            border: 1px solid rgba(255, 179, 0, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .contact-email:hover {
-            background: rgba(255, 179, 0, 0.2);
-            box-shadow: 0 0 20px rgba(255, 179, 0, 0.2);
-        }
-        
-        .contact-note {
-            margin-top: 1.5rem;
-            color: #777;
-            font-size: 0.9rem;
-        }
-        
-        /* 法律免责声明 */
-        .legal-disclaimer {
-            background: rgba(211, 47, 47, 0.05);
-            border-radius: 8px;
+        .app-card {
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
             padding: 1.5rem;
-            margin-top: 3rem;
-            border-left: 4px solid var(--hull-red);
-            font-size: 0.85rem;
-            color: #999;
-            line-height: 1.4;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
         }
-        
-        /* 页脚 */
-        footer {
-            margin-top: 5rem;
-            padding: 2rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(42, 59, 92, 0.5);
-            color: #666;
+        .app-card h4 {
+            font-family: 'Roboto Mono', monospace;
+            color: var(--header-text-color);
+            font-size: 1.1rem;
+            margin: 0 0 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
         }
-        
-        .footer-info {
-            margin-top: 1rem;
-            font-size: 0.9rem;
+        .app-card p {
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.6;
         }
-        
-        .status-indicator {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(0, 255, 0, 0.1);
-            color: #4cff4c;
-            border-radius: 20px;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.9rem;
-            margin-left: 1rem;
-            animation: statusPulse 2s infinite;
+
+        /* --- Footer & CTA --- */
+        .footer-cta {
+            margin-top: 4rem;
+            padding: 2rem;
+            background-color: var(--card-background);
+            border-radius: 12px;
         }
-        
-        @keyframes statusPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        .price {
+            font-family: 'Roboto Mono', monospace;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            color: var(--header-text-color);
+            margin-bottom: 1rem;
         }
-        
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            header {
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 14px 32px;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            border: 2px solid var(--primary-color);
+        }
+        .btn-buy {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+        }
+        .btn-buy:hover {
+            background-color: var(--header-text-color);
+            border-color: var(--header-text-color);
+            color: var(--background-color);
+            transform: translateY(-2px);
+        }
+        .btn-contact {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+        .btn-contact:hover {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+        }
+
+        @media (max-width: 600px) {
+             .cta-buttons {
                 flex-direction: column;
-                gap: 1.5rem;
-                text-align: center;
-            }
-            
-            .logo {
-                font-size: 2.2rem;
-            }
-            
-            .concept-title {
-                font-size: 1.8rem;
-            }
-            
-            .total-price {
-                font-size: 3.5rem;
-            }
-            
-            .applications {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-email {
-                font-size: 1.2rem;
-                padding: 0.8rem 1.5rem;
-                word-break: break-all;
-            }
-            
-            .crane-arm {
-                display: none;
+                align-items: stretch;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 港口波浪背景 -->
-    <canvas id="harbor-canvas"></canvas>
-    <div class="container-grid"></div>
-    <div class="crane-arm"></div>
-    
-    <div class="container">
+
+    <main class="container">
         <header>
-            <div class="logo">
-                <span class="logo-fab">FAB</span><span class="logo-ships">SHIPS</span><span style="color: #aaa; font-size: 2rem;">.COM</span>
-            </div>
-            <div class="domain-info">
-                <div class="info-item">
-                    <span class="info-label">DOMAIN:</span>
-                    <span>FABSHIPS.COM</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">CONCEPT:</span>
-                    <span>FABRICATION FLEETS</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">CHARACTERS:</span>
-                    <span>7 + ".com"</span>
-                </div>
-            </div>
+            <h1 class="domain-name">
+                <span class="fabships-span">fabships</span><span class="com-span">.com</span>
+            </h1>
         </header>
         
-        <main class="main-content">
-            <section class="concept-section">
-                <h1 class="concept-title">
-                    DISTRIBUTED FABRICATION FLEETS
-                </h1>
-                <p class="concept-subtitle">
-                    Mobile manufacturing units that bring production capacity to where it's needed most.
-                    A fleet of specialized fabrication ships for on-demand, distributed industrial production.
-                </p>
-                
-                <div class="core-concept">
-                    FABSHIPS = <span class="concept-highlight">FABRICATION</span> + <span class="concept-highlight">SHIPS</span> = 
-                    A fleet of mobile manufacturing vessels enabling <span class="concept-highlight">decentralized production</span> 
-                    and <span class="concept-highlight">supply chain resilience</span>.
-                </div>
-                
-                <div class="differentiation">
-                    <div class="diff-title">
-                        <span style="font-size: 1.5rem;">⚠️</span>
-                        <span>IMPORTANT CONCEPTUAL DIFFERENTIATION</span>
-                    </div>
-                    <div class="diff-content">
-                        <strong>FABSHIPS.COM</strong> represents the concept of "Fabrication Fleets" – mobile, distributed manufacturing units for terrestrial and maritime applications. This is distinct from any space-related trademarks or single "fab ship" concepts. Our focus is on <strong>distributed logistics, maritime manufacturing, and mobile production platforms</strong> – a completely different market segment and conceptual framework.
-                    </div>
-                </div>
-            </section>
-            
-            <section class="applications">
-                <div class="application">
-                    <div class="app-icon">🚢</div>
-                    <div class="app-title">MOBILE PRODUCTION VESSELS</div>
-                    <div class="app-desc">
-                        Self-contained manufacturing ships that can produce components, equipment, or structures at sea or in remote coastal areas. Ideal for offshore energy, disaster response, and remote infrastructure projects.
-                    </div>
-                </div>
-                <div class="application">
-                    <div class="app-icon">🌊</div>
-                    <div class="app-title">MARITIME FABRICATION</div>
-                    <div class="app-desc">
-                        Specialized vessels for on-site construction and repair of maritime infrastructure: ports, offshore platforms, underwater structures, and coastal defense systems.
-                    </div>
-                </div>
-                <div class="application">
-                    <div class="app-icon">📦</div>
-                    <div class="app-title">LOGISTICS FABRICATION</div>
-                    <div class="app-desc">
-                        Floating factories that follow supply chains, producing goods close to consumption points to reduce transportation costs and increase supply chain resilience.
-                    </div>
-                </div>
-            </section>
-            
-            <section class="pricing-section">
-                <div class="price-tag">
-                    <div class="total-price">$28,500</div>
-                    <div class="price-label">DOMAIN ACQUISITION FEE</div>
-                </div>
-                
-                <p style="max-width: 600px; margin: 1.5rem auto; line-height: 1.5;">
-                    Strategic pricing for a 7-character .com domain representing the future of distributed manufacturing. 
-                    Includes transfer fees and conceptual documentation for the "Fabrication Fleets" business model.
-                </p>
-                
-                <button class="cta-button" id="acquireButton">
-                    INITIATE FLEET ACQUISITION PROTOCOL
-                </button>
-                
-                <div class="price-note">
-                    DOMAIN REGISTRATION: 2024 • CONCEPT DEVELOPMENT: COMPLETE • MARKET READINESS: HIGH
-                </div>
-            </section>
-            
-            <section class="contact-section" id="contact">
-                <div class="contact-title">FLEET COMMAND COMMUNICATIONS</div>
-                <div class="contact-subtitle">DIRECT LINE TO PORT AUTHORITY</div>
-                <div class="contact-email" id="emailDisplay">
-                    JOSHUA369X@GMAIL.COM
-                </div>
-                <div class="contact-note">
-                    ENCRYPTED CHANNEL • 24/7 HARBOR MONITORING • FLEET DEPLOYMENT INQUIRIES
-                </div>
-            </section>
-            
-            <div class="legal-disclaimer">
-                <strong>LEGAL NOTICE:</strong> FABSHIPS.COM is presented as a conceptual domain for "Fabrication Fleets" – mobile manufacturing vessels for terrestrial and maritime applications. This concept is distinct from and unrelated to any existing trademarks for "FABSHIP" or similar terms in other classes or contexts. All inquiries should focus on the distributed manufacturing and maritime production concepts described herein.
-            </div>
-        </main>
+        <section class="core-message">
+            <h2>Future AI manufacturing must enter space. <strong>FabShips</strong> are the fundamental requirement.</h2>
+        </section>
         
-        <footer>
-            <div class="footer-info">
-                FABSHIPS.COM | DISTRIBUTED FABRICATION FLEETS CONCEPT
+        <section class="applications">
+            <div class="app-grid">
+                <article class="app-card"><h4>Orbital Factories</h4><p>Fleets of autonomous ships that manufacture products in zero gravity, free from terrestrial constraints.</p></article>
+                <article class="app-card"><h4>Asteroid Mining Vessels</h4><p>AI-piloted ships designed to identify, harvest, and process valuable resources from near-Earth asteroids.</p></article>
+                <article class="app-card"><h4>Space Debris Collectors</h4><p>Automated ships that actively track and de-orbit space junk, cleaning commercial satellite pathways.</p></article>
+                <article class="app-card"><h4>Interplanetary Cargo</h4><p>The next generation of logistics, using fabrication ships to create parts on-the-fly during long voyages to Mars and beyond.</p></article>
+                <article class="app-card"><h4>Mobile 3D Printing Hubs</h4><p>On-demand printing of tools, components, and habitats anywhere in the solar system.</p></article>
+                <article class="app-card"><h4>Satellite Assembly & Repair</h4><p>Ships that can build, launch, and service satellite constellations directly in their designated orbits.</p></article>
+                <article class="app-card"><h4>Space Station Construction</h4><p>Modular construction vessels that fabricate and assemble large-scale habitats in space.</p></article>
+                <article class="app-card"><h4>Terraforming Support Fleet</h4><p>A network of ships producing and deploying atmospheric processors or biological agents to assist in terraforming efforts.</p></article>
+                <article class="app-card"><h4>Lunar & Martian Base Logistics</h4><p>Ships that form the backbone of a supply chain, delivering and fabricating essential materials for off-world colonies.</p></article>
+                <article class="app-card"><h4>Deep Space Exploration</h4><p>Self-sufficient explorer ships that can fabricate their own replacement parts on multi-decade journeys.</p></article>
+                <article class="app-card"><h4>AI-Swarm Shipyards</h4><p>A "queen" ship that commands a swarm of smaller fabrication drones to build other, larger vessels in space.</p></article>
+                <article class="app-card"><h4>Emergency Response Vessels</h4><p>Ships that can rapidly travel to a location and fabricate emergency shelters or medical supplies after a disaster.</p></article>
             </div>
-            <div class="footer-info">
-                DOMAIN STATUS: <span class="status-indicator">PORT READY • FLEETS DEPLOYABLE</span>
+        </section>
+
+        <footer class="footer-cta">
+            <div class="price">$700</div>
+            <div class="cta-buttons">
+                <a href="https://www.spaceship.com/s/buy/fabships.com/efR3LKMTjpq3m0Vp" class="btn btn-buy" target="_blank" rel="noopener noreferrer">Secure FabShips.com</a>
+                <button id="contactBtn" class="btn btn-contact">Contact Owner</button>
             </div>
         </footer>
-    </div>
+    </main>
 
     <script>
-        // 港口波浪动画
-        const canvas = document.getElementById('harbor-canvas');
-        const ctx = canvas.getContext('2d');
-        let waves = [];
-        const waveCount = 20;
-        
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-        
-        class Wave {
-            constructor() {
-                this.y = Math.random() * canvas.height;
-                this.length = Math.random() * 300 + 100;
-                this.amplitude = Math.random() * 20 + 5;
-                this.speed = Math.random() * 0.02 + 0.01;
-                this.phase = Math.random() * Math.PI * 2;
-                this.color = `rgba(79, 195, 247, ${Math.random() * 0.3 + 0.1})`;
-                this.lineWidth = Math.random() * 2 + 0.5;
-            }
+        document.getElementById('contactBtn').addEventListener('click', function() {
+            const email = 'joshua369x@gmail.com';
             
-            update() {
-                this.phase += this.speed;
-                if (this.phase > Math.PI * 2) this.phase = 0;
-            }
-            
-            draw() {
-                ctx.beginPath();
-                ctx.moveTo(0, this.y);
-                
-                for (let x = 0; x < canvas.width; x += 10) {
-                    const y = this.y + Math.sin(x / this.length + this.phase) * this.amplitude;
-                    ctx.lineTo(x, y);
-                }
-                
-                ctx.strokeStyle = this.color;
-                ctx.lineWidth = this.lineWidth;
-                ctx.stroke();
-            }
-        }
-        
-        // 创建集装箱位置标记
-        class Container {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.width = Math.random() * 60 + 40;
-                this.height = Math.random() * 30 + 20;
-                this.color = Math.random() > 0.5 ? 'rgba(255, 179, 0, 0.2)' : 'rgba(25, 118, 210, 0.2)';
-                this.pulse = Math.random() * Math.PI * 2;
-                this.speed = Math.random() * 0.02 + 0.01;
-            }
-            
-            update() {
-                this.pulse += this.speed;
-                if (this.pulse > Math.PI * 2) this.pulse = 0;
-                
-                // 缓慢水平移动，模拟港口活动
-                this.x += 0.1;
-                if (this.x > canvas.width) this.x = -this.width;
-            }
-            
-            draw() {
-                const pulseEffect = Math.sin(this.pulse) * 5;
-                
-                ctx.fillStyle = this.color;
-                ctx.fillRect(this.x, this.y, this.width, this.height);
-                
-                // 绘制集装箱细节
-                ctx.strokeStyle = this.color.replace('0.2', '0.4');
-                ctx.lineWidth = 1;
-                ctx.strokeRect(this.x, this.y, this.width, this.height);
-                
-                // 绘制垂直线（集装箱门）
-                ctx.beginPath();
-                ctx.moveTo(this.x + this.width/2, this.y);
-                ctx.lineTo(this.x + this.width/2, this.y + this.height);
-                ctx.stroke();
-            }
-        }
-        
-        let containers = [];
-        const containerCount = 15;
-        
-        function initWaves() {
-            waves = [];
-            for (let i = 0; i < waveCount; i++) {
-                waves.push(new Wave());
-            }
-            
-            containers = [];
-            for (let i = 0; i < containerCount; i++) {
-                containers.push(new Container());
-            }
-        }
-        
-        function animate() {
-            ctx.fillStyle = 'rgba(6, 16, 40, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // 绘制波浪
-            waves.forEach(wave => {
-                wave.update();
-                wave.draw();
-            });
-            
-            // 绘制集装箱
-            containers.forEach(container => {
-                container.update();
-                container.draw();
-            });
-            
-            // 绘制港口灯光
-            if (Math.random() < 0.1) {
-                const x = Math.random() * canvas.width;
-                const y = Math.random() * canvas.height * 0.3 + canvas.height * 0.6;
-                
-                const gradient = ctx.createRadialGradient(x, y, 0, x, y, 30);
-                gradient.addColorStop(0, 'rgba(79, 195, 247, 0.8)');
-                gradient.addColorStop(1, 'rgba(79, 195, 247, 0)');
-                
-                ctx.fillStyle = gradient;
-                ctx.fillRect(x - 30, y - 30, 60, 60);
-            }
-            
-            requestAnimationFrame(animate);
-        }
-        
-        initWaves();
-        animate();
-        
-        // 交互功能
-        const acquireButton = document.getElementById('acquireButton');
-        const emailDisplay = document.getElementById('emailDisplay');
-        
-        acquireButton.addEventListener('click', function() {
-            const originalText = this.textContent;
-            this.textContent = 'CONNECTING TO PORT AUTHORITY...';
-            this.style.background = 'linear-gradient(90deg, var(--deck-blue), var(--port-light))';
-            
-            setTimeout(() => {
-                this.textContent = 'INITIATING FLEET TRANSFER PROTOCOL...';
-                
-                setTimeout(() => {
-                    window.location.href = 'mailto:joshua369x@gmail.com?subject=Fabships.com%20Domain%20Acquisition%20(Fabrication%20Fleets)&body=I%20am%20interested%20in%20acquiring%20Fabships.com%20for%20%2428,500%20for%20the%20Fabrication%20Fleets%20concept.%20Please%20provide%20details.';
-                    
-                    setTimeout(() => {
-                        this.textContent = originalText;
-                        this.style.background = 'linear-gradient(90deg, var(--hull-red), var(--crane-yellow))';
-                    }, 3000);
-                }, 1500);
-            }, 1500);
-        });
-        
-        emailDisplay.addEventListener('click', function() {
-            const originalText = this.textContent;
-            this.textContent = 'EMAIL COPIED TO SHIP LOG ✓';
-            this.style.background = 'rgba(0, 255, 0, 0.2)';
-            this.style.color = '#4cff4c';
-            
-            navigator.clipboard.writeText('joshua369x@gmail.com').then(() => {
-                setTimeout(() => {
-                    this.textContent = originalText;
-                    this.style.background = 'rgba(255, 179, 0, 0.1)';
-                    this.style.color = 'var(--crane-yellow)';
-                }, 2000);
-            });
-        });
-        
-        // 添加键盘交互
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'f' || e.key === 'F') {
-                // 触发集装箱掉落效果（模拟装载）
-                for (let i = 0; i < 3; i++) {
-                    setTimeout(() => {
-                        containers.push(new Container());
-                        // 移除最老的集装箱，保持总数
-                        if (containers.length > containerCount + 5) {
-                            containers.shift();
-                        }
-                    }, i * 200);
-                }
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email).then(() => {
+                    this.textContent = 'Email Copied!';
+                    setTimeout(() => { this.textContent = 'Contact Owner'; }, 3000);
+                }).catch(() => {
+                    fallbackCopy(email, this);
+                });
+            } else {
+                fallbackCopy(email, this);
             }
         });
-        
-        // 页面加载效果
-        window.addEventListener('load', () => {
-            document.querySelector('.logo').style.opacity = '1';
-            document.querySelector('.logo').style.transform = 'translateY(0)';
-            
-            // 为应用卡片添加延迟显示
-            const applications = document.querySelectorAll('.application');
-            applications.forEach((app, index) => {
-                setTimeout(() => {
-                    app.style.opacity = '1';
-                    app.style.transform = 'translateY(0)';
-                }, 300 + index * 200);
-            });
-        });
+
+        function fallbackCopy(text, buttonElement) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.top = '-9999px';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                const successful = document.execCommand('copy');
+                buttonElement.textContent = successful ? 'Email Copied!' : 'Copy Failed';
+            } catch (err) {
+                buttonElement.textContent = 'Copy Failed';
+            }
+            document.body.removeChild(textArea);
+            setTimeout(() => { buttonElement.textContent = 'Contact Owner'; }, 3000);
+        }
     </script>
+
 </body>
 </html>
