@@ -10,16 +10,63 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary-color: #87CEEB; /* Sky Blue */
-            --background-color: #0d1a26;
+            --primary-color: #00ffff; /* Sci-fi Cyan */
+            --secondary-color: #ff00ff; /* Sci-fi Magenta */
+            --background-color: #02040a;
             --text-color: #cdd4da;
             --header-text-color: #ffffff;
-            --card-background: #172a3a;
+            --card-background: rgba(13, 26, 38, 0.85);
             --border-color: #2a4157;
+        }
+
+        /* --- Animated Starfield Background --- */
+        @keyframes move-stars {
+            from {transform: translateY(0px);}
+            to {transform: translateY(-2000px);}
+        }
+        .stars, .stars2, .stars3 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: transparent;
+        }
+        .stars {
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 160px, #ddd, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 160px 120px, #ddd, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: move-stars 200s linear infinite;
+        }
+        .stars2 {
+            background-image: 
+                radial-gradient(1px 1px at 10px 90px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 80px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 120px 180px, #ddd, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 250px 250px;
+            animation: move-stars 150s linear infinite;
+        }
+        .stars3 {
+            background-image: 
+                radial-gradient(2px 2px at 150px 150px, #eee, rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 200px 50px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 300px 300px;
+            animation: move-stars 100s linear infinite;
         }
 
         body {
@@ -38,47 +85,60 @@
         .container {
             max-width: 1100px;
             width: 100%;
+            z-index: 1; /* Keep content above background */
+            position: relative;
         }
 
         /* --- Header & Domain Name --- */
         .domain-name {
-            font-family: 'Roboto Mono', monospace;
-            font-size: clamp(2.5rem, 10vw, 5rem);
-            font-weight: 700;
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(3rem, 12vw, 6rem);
+            font-weight: 900;
             margin: 0;
             color: var(--header-text-color);
         }
         
         .fabships-span {
             display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: .1em solid var(--primary-color);
-            animation: typing 3s steps(8, end) infinite, blink-caret .75s step-end infinite;
+            animation: warp-jump 4s ease-in-out infinite;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff;
         }
         
         .com-span {
             color: var(--primary-color);
-            animation: pulse-light 2s ease-in-out infinite alternate;
+            animation: hologram 3s linear infinite;
         }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        @keyframes warp-jump {
+            0%, 100% {
+                letter-spacing: normal;
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                letter-spacing: 15px;
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
         }
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary-color); }
-        }
-        @keyframes pulse-light {
-            from { text-shadow: 0 0 5px var(--primary-color); }
-            to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px #fff; }
+        
+        @keyframes hologram {
+            0%, 100% {
+                text-shadow: 0 0 5px var(--primary-color), 0 0 15px var(--primary-color), 0 0 25px var(--primary-color), 1px 1px 2px var(--secondary-color), -1px -1px 2px var(--secondary-color);
+            }
+            50% {
+                text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color), -1px 1px 2px var(--secondary-color), 1px -1px 2px var(--secondary-color);
+            }
         }
         
         /* --- Content & Core Message --- */
         .core-message {
             margin: 2rem auto 3rem auto;
             max-width: 750px;
+            padding: 1rem;
+            background: var(--card-background);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
         .core-message h2 {
             font-size: clamp(1.3rem, 4vw, 1.8rem);
@@ -106,8 +166,7 @@
             border: 1px solid var(--border-color);
             padding: 1.5rem;
             border-radius: 8px;
-            display: flex;
-            flex-direction: column;
+            backdrop-filter: blur(5px);
         }
         .app-card h4 {
             font-family: 'Roboto Mono', monospace;
@@ -157,6 +216,7 @@
         .btn-buy {
             background-color: var(--primary-color);
             color: var(--background-color);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
         }
         .btn-buy:hover {
             background-color: var(--header-text-color);
@@ -182,6 +242,10 @@
     </style>
 </head>
 <body>
+
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
 
     <main class="container">
         <header>
